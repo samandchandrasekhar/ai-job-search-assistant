@@ -15,29 +15,86 @@ st.set_page_config(
 # ---------------- STYLING ----------------
 st.markdown("""
 <style>
-.main {
-    background-color: #0e1117;
+.stApp {
+    background: #0b1120;
+    color: #e8edf5;
 }
+
 .block-container {
-    padding-top: 2rem;
-    max-width: 1100px;
+    max-width: 1050px;
+    padding-top: 2.5rem;
+    padding-bottom: 3rem;
 }
+
 .hero {
-    padding: 30px;
-    border-radius: 18px;
-    background: linear-gradient(135deg, #18243a, #243b55);
-    margin-bottom: 25px;
+    background: linear-gradient(135deg, #17243c, #132d42);
+    border: 1px solid #293d59;
+    border-radius: 20px;
+    padding: 36px 38px;
+    margin-bottom: 30px;
 }
+
+.hero h1 {
+    color: #f4f7fb !important;
+    font-size: 42px !important;
+    margin-bottom: 10px;
+}
+
+.hero p {
+    color: #b9c8db !important;
+    font-size: 16px;
+}
+
+h1, h2, h3 {
+    color: #f1f5f9 !important;
+}
+
+div[data-testid="stTextInput"] input {
+    background: #131d2e;
+    color: #f1f5f9;
+    border: 1px solid #354761;
+    border-radius: 12px;
+    padding: 14px;
+}
+
+div[data-testid="stButton"] button {
+    background: #38bdf8;
+    color: #07111f;
+    border: none;
+    border-radius: 10px;
+    font-weight: 700;
+    min-height: 45px;
+}
+
+div[data-testid="stButton"] button:hover {
+    background: #7dd3fc;
+    color: #07111f;
+    border: none;
+}
+
 .job-card {
-    padding: 20px;
-    border: 1px solid #30363d;
-    border-radius: 14px;
-    margin-bottom: 15px;
-    background: #161b22;
+    background: #131d2e;
+    border: 1px solid #293950;
+    border-radius: 15px;
+    padding: 22px;
+    margin: 14px 0;
 }
+
 .match {
-    color: #58d68d;
-    font-weight: bold;
+    color: #67e8a5;
+    font-weight: 600;
+}
+
+div[data-testid="stAlert"] {
+    border-radius: 12px;
+}
+
+hr {
+    border-color: #26354b;
+}
+
+footer {
+    visibility: hidden;
 }
 </style>
 """, unsafe_allow_html=True)
@@ -45,9 +102,14 @@ st.markdown("""
 # ---------------- HEADER ----------------
 st.markdown("""
 <div class="hero">
-    <h1>🎯 JobMatch AI</h1>
-    <p>Find opportunities that match your skills and ambitions.</p>
-    <p>Semantic search powered by AI and vector embeddings.</p>
+    <h1>JobMatch AI</h1>
+    <p style="font-size:19px;">
+        Your skills. Your ambitions. Your next opportunity. Sam brings it.
+    </p>
+    <p>
+        Discover relevant jobs through semantic search and
+        AI-powered recommendations.
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
@@ -274,26 +336,36 @@ def get_ai_response(query, api_key):
     return message.content, []
 
 # ---------------- USER INTERFACE ----------------
-st.markdown("### Find your next opportunity")
+st.markdown("## What kind of role are you looking for?")
 
-query = st.text_input(
-    "Describe the job you want",
-    placeholder="e.g. Entry-level Python backend jobs with SQL..."
+st.caption(
+    "Describe your skills, experience, interests or the kind of work you want."
 )
 
-col1, col2 = st.columns([1, 5])
+query = st.text_input(
+    "Job description",
+    placeholder="e.g. Entry-level Python roles involving backend development and SQL",
+    label_visibility="collapsed"
+)
 
-with col1:
-    search_button = st.button(
-        "🔍 Search jobs",
-        use_container_width=True
-    )
+search_button = st.button("Find matching opportunities", use_container_width=True)
 
-with col2:
-    st.caption(
-        "Try describing your skills, experience, interests or career goals."
-    )
+st.markdown("#### Try searching for")
 
+suggestions = [
+    "Python backend jobs",
+    "Data analytics internships",
+    "Machine learning roles for beginners",
+    "Software jobs involving SQL"
+]
+
+cols = st.columns(4)
+
+for i, suggestion in enumerate(suggestions):
+    with cols[i]:
+        if st.button(suggestion, key=f"suggestion_{i}"):
+            query = suggestion
+            search_button = True
 # ---------------- RESULTS ----------------
 if search_button:
 
