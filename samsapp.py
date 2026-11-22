@@ -15,85 +15,156 @@ st.set_page_config(
 # ---------------- STYLING ----------------
 st.markdown("""
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+
 .stApp {
-    background: #0b1120;
-    color: #e8edf5;
+    background: #eaf5ff;
+    color: #172536;
+    font-family: 'Inter', sans-serif;
+}
+
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
 }
 
 .block-container {
-    max-width: 1050px;
-    padding-top: 2.5rem;
-    padding-bottom: 3rem;
+    max-width: 1100px;
+    padding-top: 4rem;
+    padding-bottom: 5rem;
 }
 
+/* Hero */
 .hero {
-    background: linear-gradient(135deg, #17243c, #132d42);
-    border: 1px solid #293d59;
-    border-radius: 20px;
-    padding: 36px 38px;
-    margin-bottom: 30px;
+    text-align: center;
+    padding-top: 65px;
+    padding-bottom: 45px;
 }
 
-.hero h1 {
-    color: #f4f7fb !important;
-    font-size: 42px !important;
+.hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #34495e;
+    margin-bottom: 28px;
+}
+
+.hero-title {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.08;
+    font-weight: 850;
+    letter-spacing: -4px;
+    color: #172536;
+    margin: 0;
+}
+
+.hero-title.accent {
+    color: #e44b5b;
+}
+
+.hero-subtitle {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #43566c;
+    max-width: 650px;
+    margin: 26px auto 0 auto;
+}
+
+/* Search section */
+.search-section {
+    max-width: 850px;
+    margin: 35px auto 0 auto;
+}
+
+.search-label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #34495e;
     margin-bottom: 10px;
 }
 
-.hero p {
-    color: #b9c8db !important;
-    font-size: 16px;
-}
-
-h1, h2, h3 {
-    color: #f1f5f9 !important;
-}
-
+/* Text input */
 div[data-testid="stTextInput"] input {
-    background: #131d2e;
-    color: #f1f5f9;
-    border: 1px solid #354761;
+    background: #ffffff;
+    border: 1px solid #c8d9e8;
     border-radius: 12px;
-    padding: 14px;
+    color: #172536;
+    min-height: 52px;
+    padding: 12px 16px;
+    font-size: 15px;
 }
 
+div[data-testid="stTextInput"] input:focus {
+    border-color: #e44b5b;
+    box-shadow: 0 0 0 1px #e44b5b;
+}
+
+/* Buttons */
 div[data-testid="stButton"] button {
-    background: #38bdf8;
-    color: #07111f;
-    border: none;
-    border-radius: 10px;
+    background: #e44b5b;
+    color: white;
+    border: 1px solid #e44b5b;
+    border-radius: 9px;
+    min-height: 48px;
     font-weight: 700;
-    min-height: 45px;
+    font-size: 14px;
+    transition: 0.2s ease;
 }
 
 div[data-testid="stButton"] button:hover {
-    background: #7dd3fc;
-    color: #07111f;
-    border: none;
+    background: #cf394b;
+    border-color: #cf394b;
+    color: white;
+}
+
+/* Suggestions */
+.suggestion-label {
+    color: #52667b;
+    font-size: 13px;
+    font-weight: 600;
+    margin-top: 25px;
+    margin-bottom: 10px;
+}
+
+/* Results */
+.result-heading {
+    color: #172536;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-top: 50px;
 }
 
 .job-card {
-    background: #131d2e;
-    border: 1px solid #293950;
-    border-radius: 15px;
-    padding: 22px;
-    margin: 14px 0;
+    background: #ffffff;
+    border: 1px solid #d7e4ef;
+    border-radius: 14px;
+    padding: 25px;
+    margin: 16px 0;
 }
 
 .match {
-    color: #67e8a5;
-    font-weight: 600;
+    color: #e44b5b;
+    font-weight: 700;
 }
 
-div[data-testid="stAlert"] {
-    border-radius: 12px;
+h1, h2, h3 {
+    color: #172536 !important;
 }
 
-hr {
-    border-color: #26354b;
+p {
+    color: #43566c;
+}
+
+[data-testid="stSidebar"] {
+    background: #dceeff;
 }
 
 footer {
+    visibility: hidden;
+}
+
+#MainMenu {
     visibility: hidden;
 }
 </style>
@@ -102,14 +173,20 @@ footer {
 # ---------------- HEADER ----------------
 st.markdown("""
 <div class="hero">
-    <h1>JobMatch AI</h1>
-    <p style="font-size:19px;">
-        Your skills. Your ambitions. Your next opportunity. Sam brings it.
-    </p>
-    <p>
-        Discover relevant jobs through semantic search and
-        AI-powered recommendations.
-    </p>
+    <div class="hero-eyebrow">THE AI-POWERED JOB SEARCH</div>
+
+    <div class="hero-title">
+        Find your next role.
+    </div>
+
+    <div class="hero-title accent">
+        Made for your ambitions.
+    </div>
+
+    <div class="hero-subtitle">
+        Discover opportunities that match your skills, interests,
+        and career goals — using semantic search and AI.
+    </div>
 </div>
 """, unsafe_allow_html=True)
 
