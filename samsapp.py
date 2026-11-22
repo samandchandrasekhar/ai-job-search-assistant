@@ -341,13 +341,12 @@ if search_button:
                 st.info("No matching jobs were found.")
 
         except KeyError:
-    st.error(
-        "Groq API key is missing. "
-        "Please configure GROQ_API_KEY in Streamlit Secrets."
-    )
-
-except Exception as e:
-    st.error(f"Something went wrong: {e}")
+            st.error(
+                "Groq API key is missing. "
+                "Please configure GROQ_API_KEY in Streamlit Secrets."
+            )
+        except Exception as e:
+            st.error(f"Something went wrong: {e}")
 
         except Exception as e:
             st.error(f"Something went wrong: {e}")
