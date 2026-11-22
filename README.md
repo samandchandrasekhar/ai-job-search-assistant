@@ -42,11 +42,12 @@ JobMatch AI aims to make job discovery more intuitive by allowing users to descr
 🖥️ Screenshots
 
 ## Application Preview
-
+## Homepage
 <p align="center">
   <img src="screen/main.png" width="100%">
 </p>
 
+## Search Results
 <p align="center">
   <img src="screen/a.png" width="32%">
   <img src="screen/b.png" width="32%">
