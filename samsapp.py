@@ -103,20 +103,24 @@ div[data-testid="stTextInput"] input:focus {
 
 /* Buttons */
 div[data-testid="stButton"] button {
-    background: #e44b5b;
-    color: white;
-    border: 1px solid #e44b5b;
-    border-radius: 9px;
-    min-height: 48px;
-    font-weight: 700;
-    font-size: 14px;
-    transition: 0.2s ease;
+    background: #ffffff !important;
+    color: #172b4d !important;
+    border: 1px solid #e5e7eb !important;
+    border-radius: 12px !important;
+    font-weight: 600 !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+    transition: all 0.2s ease !important;
 }
 
 div[data-testid="stButton"] button:hover {
-    background: #cf394b;
-    border-color: #cf394b;
-    color: white;
+    background: #f3f7fc !important;
+    border-color: #d1dbe8 !important;
+    color: #172b4d !important;
+    transform: translateY(-1px);
+}
+
+div[data-testid="stButton"] button:active {
+    background: #edf2f8 !important;
 }
 
 /* Suggestions */
