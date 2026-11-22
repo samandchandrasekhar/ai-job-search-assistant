@@ -171,18 +171,12 @@ footer {
 """, unsafe_allow_html=True)
 
 # ---------------- HEADER ----------------
+
 st.markdown("""
 <div class="hero">
     <div class="hero-eyebrow">THE AI-POWERED JOB SEARCH</div>
-
-    <div class="hero-title">
-        Find your next role.
-    </div>
-
-    <div class="hero-title accent">
-        Made for your ambitions.
-    </div>
-
+    <div class="hero-title">Find your next role.</div>
+    <div class="hero-title-accent">Made for your ambitions.</div>
     <div class="hero-subtitle">
         Discover opportunities that match your skills, interests,
         and career goals — using semantic search and AI.
