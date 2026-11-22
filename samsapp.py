@@ -35,39 +35,41 @@ html, body, [class*="css"] {
 
 /* Hero */
 .hero {
-    text-align: center;
-    padding-top: 65px;
-    padding-bottom: 45px;
+    padding: 2rem 0 2.5rem 0;
+    text-align: left;
 }
 
 .hero-eyebrow {
-    font-size: 11px;
-    letter-spacing: 4px;
-    font-weight: 700;
+    font-size: 0.72rem;
+    letter-spacing: 0.28em;
     text-transform: uppercase;
-    color: #34495e;
-    margin-bottom: 28px;
+    font-weight: 700;
+    color: #64748b;
+    margin-bottom: 1.2rem;
 }
 
 .hero-title {
-    font-size: clamp(42px, 7vw, 76px);
-    line-height: 1.08;
-    font-weight: 850;
-    letter-spacing: -4px;
-    color: #172536;
-    margin: 0;
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    color: #172b4d;
+    line-height: 1.05;
 }
 
-.hero-title.accent {
-    color: #e44b5b;
+.hero-title-accent {
+    font-size: 3.2rem;
+    font-weight: 800;
+    letter-spacing: -0.045em;
+    color: #e45745;
+    line-height: 1.05;
 }
 
 .hero-subtitle {
-    font-size: 17px;
-    line-height: 1.8;
-    color: #43566c;
+    font-size: 1.05rem;
+    color: #64748b;
     max-width: 650px;
-    margin: 26px auto 0 auto;
+    line-height: 1.7;
+    margin-top: 1rem;
 }
 
 /* Search section */
